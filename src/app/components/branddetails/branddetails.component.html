@@ -1,0 +1,22 @@
+@if (detailsBrands) {
+    <section class="my-4">
+        
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                
+                <div class="col-md-10">
+                    <div>
+                        <img [src]="detailsBrands.image" class="w-50"  [alt]="detailsBrands.name">
+
+                        <h2 class="fw-bold py-1">{{detailsBrands.name}}</h2>
+                        <p>{{detailsBrands.slug}}</p>
+                        
+                        
+                        
+
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+}

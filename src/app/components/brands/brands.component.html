@@ -1,0 +1,16 @@
+<section class="my-4">
+    <div class="container p-4 my-4  ">
+
+        <h2 class="text-main text-center my-3" >All Brands</h2>
+        <div class="row g-4 ">
+            @for (item of brandsList; track $index) {
+                <div class="col-md-3 border cr" [routerLink]="['/brandDetails',item._id]">
+                    <div>
+                        <img [src]="item.image" class="w-100" [alt]="item.name" >
+                    </div>
+                    <p  class="text-center" >{{item.name}}</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

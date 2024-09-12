@@ -1,0 +1,42 @@
+<!-- products section  -->
+<section class="my-4">
+    <div class="container">
+
+        <input type="search" name="search" id="search" placeholder="Search...." class="form-control w-50 mx-auto my-3" [(ngModel)]="text">
+    <div class="row g-3">
+        
+
+        
+        @for (product of productsList|search:text; track product.id) {
+            <div class="col-md-3">
+                <div class="border product  p-2">
+                    <div [routerLink]="['/productDetails',product.id]">
+                        <img [src]="product.imageCover" class="w-100 pb-2" [alt]="product.title">
+                    <h3 class="small text-main py-1">{{product.category.name}}</h3>
+                    <h4 class="h6 fw-bold py-1">{{product.title.split(" ",2).join(" ")}}</h4>
+                    <div class="d-flex justify-content-between align-content-center">
+                        <span>{{product.price}}EGp</span>
+                        <div>
+                            <span>
+                                @for (num of [1,2,3,4,5].slice(0,product.ratingsAverage); track $index) {
+                                <i class="fas fa-star rating-color"></i>
+                                }
+                                @if (product.ratingsAverage%1!==0) {
+                                    <i class="fa-solid fa-star-half-stroke rating-color" ></i>
+                                }
+                                <span class="text-muted">{{product.ratingsAverage}}</span>
+                            </span>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center my-2">
+                        <button class="btn-main w-75 my-2 mx-auto " (click)="addProductToCart(product.id)">+Add to cart </button>
+                    <span class="ms-auto cr" (click)="toggle(product)" [ngClass]="{'active': isinwishlist(product)}" ><i class="fa-solid fa-heart heart-card"></i></span>
+
+                        </div>                </div>
+            </div>
+        }
+    </div>
+</div>
+</section>

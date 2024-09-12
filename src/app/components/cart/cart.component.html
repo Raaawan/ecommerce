@@ -1,0 +1,61 @@
+<section>
+    <div class="container bg-main-light rounded-4 shadow p-4 my-4 w-75 mx-auto">
+        <div class="title d-flex justify-content-between align-items-center py-2">
+            <h2 class="fw-bolder"> Cart Shop</h2>
+            <button class="bg-main btn text-light p-3" [routerLink]="['/orders',cartItems?._id]">Check out </button>
+            </div>
+           @if (cartItems) {
+            <!-- {{cartItems}} -->
+            <div class="total d-flex justify-content-between align-items-center py-2">
+                <p>total price:
+                    <span class="text-main">{{cartItems.totalCartPrice}}</span>
+                </p>
+                <p>total number of items: 
+                    <span class="text-main">{{cartItemNumber}}</span>
+                </p>
+
+            </div>
+
+            @for (item of cartItems.products; track item.product.id) {
+                <div class="row my-3 border-bottom ">
+                    <div class="col-md-2">
+                        <img [src]="item.product.imageCover" class="w-100" [alt]="item.product.title">
+                    </div>
+                    <div class="col-md-10 d-flex justify-content-between align-items-center">
+                        <div>
+                            <h3 class="h5">{{item.product.title}}</h3>
+                        <p class="m-0">Price:   
+                            <span class="text-main">{{item.price}}</span>
+                        </p>                        
+                        <span class="text-danger btn cr" (click)="removeItem(item.product.id)">
+                        <i class="fa-solid fa-trash"></i>
+                        Remove
+
+                        </span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-main cr" (click)="updateCount(item.product.id,item.count+1)">
+                                <i class="fa-solid fa-circle-plus fa-2xl"></i>
+                            </span>
+                            <span>
+                                {{item.count}}
+                            </span>
+                            <span class="text-main cr" (click)="updateCount(item.product.id,item.count -1)">
+                                <i class="fa-solid fa-circle-minus fa-2xl"></i>
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="d-flex justify-content-center align-items-center">
+                <button class="btn text-danger p-3 my-4 btn-sm border-danger w-50 mx-auto" (click)="clearForm()"> Clear Your Cart </button>
+     
+                </div>
+           }
+           @else {
+            <h3>Your cart is empty</h3>
+           }
+          
+    </div>
+</section>

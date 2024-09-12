@@ -1,0 +1,33 @@
+<section>
+    <div class="container bg-main-light rounded-4 shadow p-4 my-4 w-75 mx-auto">
+        <div class="title d-flex justify-content-between align-items-center py-2">
+            <h2 class="fw-bolder"> Orders Shop</h2>
+            </div>
+           @if (AllOrders) {
+            <div class="total d-flex justify-content-between align-items-center py-2">
+                <p>total price:
+                    <span class="text-main">{{AllOrders.totalOrderPrice}}</span>
+                </p>
+                
+
+            </div>
+
+            @for (item of AllOrders.cartItems; track $index) {
+                <div class="row my-3 border-bottom ">
+                    <div class="col-md-12 d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="m-0">Price:   
+                                <span class="text-main">{{item.price}}</span>
+                            </p> <p class="m-0">count:   
+                                <span class="text-main">{{item.count}}</span>
+                            </p>                        
+                    </div>
+                </div></div>
+            }
+           }
+           @else {
+            <h3>Your cart is empty</h3>
+           }
+          
+    </div>
+</section>

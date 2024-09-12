@@ -1,0 +1,15 @@
+<section class="my-4">
+        
+    <div class="container">
+        <h2 class="text-main text-center my-3 fw-bold" >All Sub Categories</h2>
+
+        <div class="row g-4 justify-content-center">
+            @for (item of detailsSubCategory; track item._id) {
+                <div class="col-md-3 mx-2 border">
+                    <h3 class="text-center fw-bolder py-3 ">{{item.name}}</h3>
+                </div>
+                
+            } 
+        </div>
+    </div>
+</section>

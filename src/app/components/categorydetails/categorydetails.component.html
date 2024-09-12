@@ -1,0 +1,28 @@
+@if (detailsCategory) {
+    <section class="my-4">
+        
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-4">
+                    <div>
+                        
+                        <img [src]="detailsCategory.image" class="w-100"  [alt]="detailsCategory.name">
+
+                           
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-between align-content-center">
+                        <div>
+                            <h2 class="fw-bold py-1">{{detailsCategory.name}}</h2>
+                            <p class="py-1">{{detailsCategory.slug}}</p>
+                            
+                            
+                        </div>
+                
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+}

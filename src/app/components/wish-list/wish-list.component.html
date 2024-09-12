@@ -1,0 +1,33 @@
+<section>
+    <div class="container bg-main-light rounded-4 shadow p-4 my-4 w-75 mx-auto">
+        <div class="title d-flex justify-content-between align-items-center py-2">
+            <h2 class="fw-bolder"> Wish List:</h2>
+        </div>
+                @if (wishItems) {
+                    @for (item of wishItems; track item.id) {
+                        <div class="row my-3 border-bottom ">
+                            <div class="col-md-2">
+                                <div>
+                                    <img [src]="item.imageCover" class="w-100" [alt]="item.title">
+                                </div>
+                            </div>
+                            <div class="col-md-10 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="h5">{{item.title}}</h3>
+                                <p class="m-0">Price:   
+                                    <span class="text-main">{{item.price}}</span>
+                                </p>                        
+                                
+                                </div>
+                            </div>
+                        </div>
+                   }
+                }
+                @else {
+                    <p>No items in wishList</p>
+                }
+            
+          
+    </div>
+    
+</section>
